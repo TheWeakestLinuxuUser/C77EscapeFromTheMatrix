@@ -4,7 +4,12 @@ import random
 os.system('color 2')
 print("Mi a neved felfedező?")
 nev=input()
-print(str(nev)+"? Szép neved van")
+if nev=="Napóleon":
+    print("There is nothing we can do")
+elif nev=="Fredy" or nev=="Fredy Fazbear":
+    print("Har Har ha har har har ha har ha har...")
+else:
+    print(str(nev)+"? Szép neved van")
 time.sleep(2)
 os.system('cls')
 print("Körbe nézel és találkozol egy öreg bácsikával")
