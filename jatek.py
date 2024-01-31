@@ -1,7 +1,6 @@
 import os
 import time
 import random
-
 os.system('color 2')
 print("Mi a neved felfedező?")
 nev=input()
@@ -15,9 +14,7 @@ time.sleep(2)
 os.system('cls')
 print("Körbe nézel és találkozol egy öreg bácsikával")
 os.system('color 3')
-print("[Öregember]Szia a nevem Lajos.")
-time.sleep(4)
-os.system('cls')
+print("Szia a nevem Lajos.")
 print("[Lajos] Egy öreg régész vagyok aki a segítséged kéri")
 print("[Lajos] A feladatod nem lesz egyszerű. Meg kell találnod Atlantist az elveszett várost.")
 print("        De persze ez senkinek sem sikerült még, ettől olyan nehéz a feladat. Csak találgatni")
@@ -89,7 +86,6 @@ os.system('color 2')
 time.sleep(5)
 os.system('cls')
 print("[Lajos]Innentől egyedül kell folytatnod utadat. Ha vissza térnél én itt leszek.A saját érdekedben mondom legyél körültekintő.")
-print("(tipp: a zárójelben írt opciókat tudod választani, VIGYÁZZ A HELYESíRÁSRA!)")
 print("")
 print("Nyomj entert a folytatáshoz!")
 os.system('color 3')
@@ -97,7 +93,7 @@ hngzjm=input()
 os.system('color 2')
 os.system('cls')
 print("A parton állsz mit teszel?")
-print("(körbenéz)")
+print("körbenéz")
 k=0
 nez=input()
 os.system('cls')
@@ -107,41 +103,113 @@ if nez=="lelépek":
     print("[Háttérben]Hozd a következőt ez nem akarja megpróbálni!")
     os.system('color 6')
     time.sleep(3)
-    os.system('exit')
+    os.system('cls')
+    exit()
 if nez=="körbenéz":
     print("Megtaláltad a hajót amivel kihajózhatsz és még két utat.")
     k=1
 os.system('color 2')
+o2=0
+map=0
 while k!=0:
     print("Mit teszel?")
+    print("(A zárójelben lévő szavak különböző lehetőségeket jelölnek)")
     print("(Jobbra megyek/Balra megyek/Kihajózok)")
     megy=input()
-    if megy=="Balra megyek":
+    if megy=="Balra megyek" or megy=="balra megyek":
         os.system('cls')
         print("Balra mentél és találtál egy oxigén palackot!")
         print("Mit teszel?")
-        print("elmegyek vele,nélküle megyek")
+        print("(elmegyek vele/nélküle megyek)")
         tett=input()
         if tett=="elmegyek vele":
             print("Van egy oxigén palackod!")
-            time.sleep(3)
             o2=1
+            time.sleep(3)          
         k=1
         os.system('cls')
         print("Visszatértél a hajóhoz.")
-    elif megy=="Jobbra megyek":
+    elif megy=="Jobbra megyek" or megy=="jobbra megyek":
         os.system('cls')
         print("Jobbra mentél és találtál egy térképet!")
         print("Mit teszel vele?")
-        print("elmegyek vele, nélküle megyek")
+        print("(elmegyek vele/nélküle megyek)")
         tett2=input()
         if tett2=="elmegyek vele":
             print("Szereztél egy térképet")
+            map=1
             time.sleep(3)
         k=1
         os.system('cls')
         print("Visszatértél a hajóhoz.")
-    elif megy=="Kihajózok":
+    elif megy=="Kihajózok" or megy=="kihajózok":
         os.system('cls')
         print("Kihajóztál az óceánra!")
         k=0
+    else:
+        print("Valamit elírtál.")
+        os.system('cls')
+time.sleep(2)
+dmg=0
+prot=0
+ghj=1
+os.system('cls')
+print("Használd az eszköztárad az eszköztár szóval!")
+print("eszköztár")
+print("")
+print("Megjegyzés:Az eszköztárad csak csata és puzzle estén tudod használni!")
+inv=input()
+os.system('cls')
+if inv=="eszköztár" or inv=="Eszköztár":
+    print("Nagyszerű. Itt láthatod hogy milyen dolgaid vannak.")
+    print("Ha beírod a nevüket akkor tudod használni őket.")
+    print("Ha beírod hogy statisztika láhatod a statisztikáid.")
+    print("A kilép szóval pedig kiléphetsz az eszköztárból.")
+    time.sleep(6)
+    os.system('cls')
+while ghj!=0:
+    print("STATISZTIKA")
+    if map==1:
+        print("térkép")
+    if o2==1:
+        print("oxigén palack")
+    vál=input()
+    if vál=="térkép" or vál=="Térkép":
+        os.system('cls')
+        print("A térképen látsz egy útvonalat és egy háromágú szigonyt a víz alatt.")
+        time.sleep(3)
+        print("Jaj, ne! A térképet elvitte a szél!")
+        time.sleep(3)
+        os.system('cls')
+        map=0
+        ghj=1
+    elif vál=="oxigén palack" or vál=="Oxigén palack" or vál=="oxigénplack" or vál=="Oxigénpalack":
+        os.system('cls')
+        print("Felvetted az oxigén palackot.")
+        time.sleep(3)
+        os.system('cls')
+        o2=0
+        ghj=1
+    elif vál=="Statisztika" or vál=="statisztika":
+        print("        Statisztikáid:-életerő:"+str(élet))
+        print("                      -intelligenciád:"+str(iq))
+        print("                      -fizikai erőd:"+str(erő))
+        print("                      -reflexeid:"+str(reflex))
+        print("                      -szerencséd:"+str(luck))
+        print("                      -sebzésed:"+str(dmg))
+        print("                      -védelmed:"+str(prot))
+        time.sleep(5)
+        os.system('cls')
+    elif vál=="Kilép" or vál=="kilép":
+        print("Kiléptél az eszköztáradból.")
+        ghj=0
+        os.system('cls')
+    else:
+        print("Valamit elírtál!")
+        os.system('cls')
+print("[Gondolat]:A hajón van szonár az segít felderíteni a tengerfeneket.")
+os.system('color 1')
+print("(Szonár)")
+sz=input()
+if sz=="szonár" or sz=="Szonár":
+    print("")
