@@ -1,12 +1,13 @@
 import os
 import time
 import random
+
 os.system('color 2')
 print("Mi a neved felfedező?")
 nev=input()
 if nev=="Napóleon":
     print("There is nothing we can do")
-elif nev=="Fredy" or nev=="Fredy Fazbear":
+elif nev=="Freddy" or nev=="Freddy Fazbear":
     print("Har Har ha har har har ha har ha har...")
 else:
     print(str(nev)+"? Szép neved van")
