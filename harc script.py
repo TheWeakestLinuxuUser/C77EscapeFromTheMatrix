@@ -8,9 +8,10 @@ luck=random.randint(1,20)
 es=1
 fight=1
 re=40
-realhp=élet-7
+realhp=élet-5
 valami=1
-prot=0
+reflex=20
+rreflex=20-(reflex-1)
 while fight!=0:
     if valami==1:
         print("Valami megtámadott")
@@ -18,15 +19,18 @@ while fight!=0:
     print("                                     életereje:"+str(re))
     os.system('color 2')
     dmge=random.randint(1,realhp)
-    print("Sebzett rád "+str(dmge)+"-t")
-    dmge=dmge-prot
-    élet=élet-dmge
+    esé=random.randint(-3,rreflex)
+    if esé==1:
+        print("Kitrétél az ütés elől!")
+    else:
+        élet=élet-dmge
+        print("Sebzett rád "+str(dmge)+"-t")
     if élet<1:
         os.system('cls')
         print("             Meghaltál")
         print("Ne feledd az óceán veszélyesebb, mint hinnéd!")
         os.system('color 4')
-        élet=realhp+7
+        élet=realhp+5
         re=40
         valami=1
         time.sleep(2)

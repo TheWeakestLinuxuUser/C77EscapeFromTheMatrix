@@ -1,6 +1,9 @@
+from itertools import permutations
 import os
+from re import S, T
 import time
 import random
+from traceback import print_tb
 os.system('color 2')
 print("Mi a neved felfedező?")
 nev=input()
@@ -109,7 +112,7 @@ if nez=="körbenéz":
     print("Megtaláltad a hajót amivel kihajózhatsz és még két utat.")
     k=1
 os.system('color 2')
-o2=0
+o2=-1
 map=0
 while k!=0:
     print("Mit teszel?")
@@ -150,7 +153,7 @@ while k!=0:
         print("Valamit elírtál.")
         os.system('cls')
 time.sleep(2)
-dmg=0
+dmg=1
 prot=0
 ghj=1
 os.system('cls')
@@ -211,5 +214,149 @@ print("[Gondolat]:A hajón van szonár az segít felderíteni a tengerfeneket.")
 os.system('color 1')
 print("(Szonár)")
 sz=input()
-if sz=="szonár" or sz=="Szonár":
-    print("")
+u=1
+ut=1
+while u!=0:
+    if sz=="szonár" or sz=="Szonár":
+        print("A szonár képén látsz egy T-alakú dolgot.")
+        print("Mit teszel?")
+        print("(leúszok/tovább megyek)")
+        ht=input()
+        if ht=="leúszok" or ht=="Leúszok":
+            os.system('cls')
+            print("Leúsztál és megnézted kiderült hogy az egy korall,")
+            print("de mikor felúsztál belegabajodtál egy portugál gálya csápjaiba és")
+            print("a mérgétől meghaltál.")
+            time.sleep(6)
+            os.system('color 2')
+            os.system('cls')
+            print("             Meghaltál")
+            print("Ne feledd az óceán veszélyesebb, mint hinnéd!")
+            os.system('color 4')
+            ut=0
+        elif ht=="tovább megyek" or ht=="Tovább megyek":
+            os.system('cls')
+            print("Tovább mentél.")
+            time.sleep(2)
+            os.system('cls')
+            ut=1
+            print("(Szonár)")
+            sz=input()
+    elif sz=="szonár" and ut==1 or sz=="Szonár" and ut==1:
+        print("A szonár képén látsz egy hajó formát.")
+        print("Mit teszel?")
+        print("(Leúszok/Tovább megyek)")
+        es=random.randint(1,luck)
+        if es==1:
+            def harcésinventory():
+                fight=1
+                ghj=0
+                re=40
+                realhp=élet-5
+                valami=1
+                reflex=20
+                rreflex=20-(reflex-1)
+                while ghj!=0:
+                    print("STATISZTIKA")
+                    vál=input()
+                    if vál=="Statisztika" or vál=="statisztika":
+                        print("        Statisztikáid:-életerő:"+str(élet))
+                        print("                      -intelligenciád:"+str(iq))
+                        print("                      -fizikai erőd:"+str(erő))
+                        print("                      -reflexeid:"+str(reflex))
+                        print("                      -szerencséd:"+str(luck))
+                        print("                      -sebzésed:"+str(dmg))
+                        print("                      -védelmed:"+str(prot))
+                        time.sleep(5)
+                        os.system('cls')
+                    elif vál=="Kilép" or vál=="kilép":
+                        print("Kiléptél az eszköztáradból.")
+                        os.system('cls')
+                        ghj=0
+                    fight=1
+                    re=40
+                    realhp=élet-7
+                    valami=1
+                    rreflex=20-(reflex-1)
+                while fight!=0:
+                    if valami==1:
+                        print("Valami megtámadott")
+                    valami=0
+                    print("                                     életereje:"+str(re))
+                    os.system('color 2')
+                    dmge=random.randint(1,realhp)
+                    esé=random.randint(-3,rreflex)
+                    if esé==1:
+                        print("Kitrétél az ütés elől!")
+                    else:
+                        élet=élet-dmge
+                    print("Sebzett rád "+str(dmge)+"-t")
+                    if élet<1:
+                        os.system('cls')
+                        print("             Meghaltál")
+                        print("Ne feledd az óceán veszélyesebb, mint hinnéd!")
+                        os.system('color 4')
+                        élet=realhp+5
+                        re=40
+                        valami=1
+                        time.sleep(2)
+                        os.system('cls')
+                    elif élet>1:
+                        print("Támadj                               életerőd:"+str(élet))
+                        print("(Támadás)")
+                        t=input()
+                        os.system('cls')
+                        if t=="Támadás" or t=="támadás":
+                            seb=random.randint(1,erő)
+                            seb=seb*dmg
+                            print("Sebeztél "+str(seb)+"-t")
+                            re=re-seb
+                            os.system('color 2')
+                            if re<1:
+                                print("Nyertél!")
+                                fight=0
+        if ht=="leúszok" or ht=="Leúszok":
+            os.system('cls')
+            print("Leúsztál és megnézted kiderült hogy egy hajóroncs,")
+            print("amiben cápák élnek.")
+            time.sleep(6)
+            os.system('color 2')
+            os.system('cls')
+            print("             Meghaltál")
+            print("Ne feledd az óceán veszélyesebb, mint hinnéd!")
+            os.system('color 4')
+            ut=0
+        elif ht=="tovább megyek" or ht=="Tovább megyek":
+            os.system('cls')
+            print("Tovább mentél.")
+            es=random.randint(1,luck)
+            if es==1:
+                harcésinventory()
+            time.sleep(2)
+            os.system('cls')
+            ut=1
+            print("(Szonár)")
+            sz=input()
+    elif sz=="szonár" and ut==1 or sz=="Szonár" and ut==1:
+        print("A szonár képén látsz egy három ágú szigonyt.")
+        print("Mit teszel?")
+        print("(Leúszok/Tovább megyek)")
+        ht=input()
+        if ht=="leúszok" or ht=="Leúszok":
+            if o2==0:
+                print("Leúsztál és megtaláltad Atlantiszt!")
+                u=0
+            else:
+                print("Hiába találtad meg Atlantiszt nem tudtál leúszni.")
+                time.sleep(6)
+                os.system('color 2')
+                os.system('cls')
+                print("             Meghaltál")
+                print("Ne feledd az óceán veszélyesebb, mint hinnéd!")
+                os.system('color 4')
+                ut=0
+        elif ht=="tovább megyek" or ht=="Tovább megyek":
+            print("Tovább mentél és nem találtad meg Atlantiszt!")
+            ut=0
+print("Leértél Atlantiszba.")
+
