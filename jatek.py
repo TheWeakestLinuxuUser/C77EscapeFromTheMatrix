@@ -267,6 +267,7 @@ while u!=0:
                 time.sleep(3)
                 os.system('cls')
                 ut=0
+                exit(0)
         elif ht=="tovább megyek" or ht=="Tovább megyek":
             print("Tovább mentél és nem találtad meg Atlantiszt!")
             s=0
