@@ -1,4 +1,16 @@
-
+fight1=1
+import os
+import time
+import random
+élet=20
+erő=20
+reflex=20
+rreflex=20-(reflex-1)
+bazdemg=0
+realhp=élet
+re=400
+prot=10
+dmg=7
 
 while fight1!=0:
     print("                                     életereje:"+str(re))
